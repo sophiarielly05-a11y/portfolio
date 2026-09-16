@@ -11,7 +11,7 @@ const navItems = [
 export default function Header() {
   return (
     <header className="sticky top-0 z-40 w-full bg-background/70 px-6 py-4 backdrop-blur-md sm:px-10 sm:py-6 lg:px-16">
-      <div className="mx-auto flex max-w-4xl items-center justify-between">
+      <div className="flex max-w-7xl items-center justify-between">
         <Link
           href="/"
           className="rounded-sm font-display text-xl text-accent outline-hidden focus-visible:[outline:2px_solid_var(--color-ink)] focus-visible:[outline-offset:4px] sm:text-2xl"

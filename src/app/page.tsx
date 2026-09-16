@@ -4,26 +4,73 @@ import TextLink from "@/components/TextLink";
 import Button from "@/components/Button";
 import Section from "@/components/Section";
 
+const caseStudies = [
+  {
+    category: "Lifecycle & Automation",
+    heading: "Building a lifecycle from scratch",
+    summary:
+      "17+ automated journeys across customer and partner lifecycles for a national marketplace.",
+    challenge:
+      "A large audience but mostly manual, one-size-fits-all sends, with enquiries and leads going cold before they converted.",
+    approach:
+      "Designed and built a full lifecycle system of 17+ automations across customer enquiry flows, post-enquiry nurture, and partner journeys from onboarding to deal follow-up, with audiences segmented from behavioural data.",
+    result:
+      "Automated coverage across the entire customer and partner journey, replacing manual sends.",
+    resultNote:
+      "[Add a metric: engagement lift, hours saved per week, or conversion improvement.]",
+  },
+  {
+    category: "Newsletters",
+    heading: "A newsletter people actually open",
+    summary:
+      "Rebuilding a flat partner newsletter into a data-led format, plus a sharper customer newsletter voice.",
+    challenge:
+      "A fortnightly partner newsletter that read like an internal memo, and a customer newsletter that needed a stronger brand voice.",
+    approach:
+      "Rebuilt the partner newsletter into a data-led thought-leadership format with performance splits, category trends and regional data, and reworked the customer newsletter's voice and structure.",
+    result: "Adopted as the new format with director-level sign-off.",
+    resultNote:
+      "[Add open-rate and click-rate change once you have the figures.]",
+  },
+  {
+    category: "Reviews & Social Proof",
+    heading: "Turning buyers into reviewers",
+    summary:
+      "An automated post-purchase flow that grows public reviews and trust at the point of decision.",
+    challenge:
+      "Plenty of happy customers, but not enough public reviews to reassure new buyers when they were deciding.",
+    approach:
+      "Built an automated post-purchase review-collection flow into Trustpilot, timed to the moment satisfaction peaks, with a follow-up for people who did not open the first send.",
+    result: "",
+    resultNote:
+      "[Add: review volume before vs after, average rating, and response rate.]",
+  },
+];
+
 const services = [
   {
-    title: "Lifecycle and automation",
-    body: "Welcome, post-purchase, nurture, win-back and abandoned-flow journeys, mapped and built end to end. B2C and B2B.",
+    title: "Welcome & onboarding",
+    body: "First impressions that convert. A welcome series that introduces your brand, sets expectations, and moves a new subscriber towards their first order.",
+  },
+  {
+    title: "Post-purchase & retention",
+    body: "The follow-through after checkout. Order updates, cross-sells and replenishment prompts that bring first-time buyers back for a second and third order.",
+  },
+  {
+    title: "Win-back & re-engagement",
+    body: "Reviving customers who have gone quiet. Timed win-back journeys and re-engagement sends that recover lapsed buyers before you lose them for good.",
   },
   {
     title: "Newsletters",
-    body: "Customer newsletters and trade or partner newsletters that build brand and earn clicks, not just announce things.",
+    body: "Customer and trade newsletters with a voice worth opening. Built to hold attention and earn clicks, not just announce this week's news and offers.",
   },
   {
-    title: "Reviews and social proof",
-    body: "Automated review-collection flows (such as Trustpilot) that turn happy buyers into ratings and testimonials.",
+    title: "Reviews & social proof",
+    body: "Automated review-collection flows into Trustpilot and similar, timed to peak satisfaction, turning happy buyers into ratings that sell to the next customer.",
   },
   {
-    title: "Segmentation and strategy",
-    body: "Audience segments built from your data, so the right message reaches the right person.",
-  },
-  {
-    title: "One-off campaigns",
-    body: "Launches, sales and seasonal sends, planned and written.",
+    title: "Segmentation & strategy",
+    body: "Audience segments built from your data, plus a campaign plan for launches and sales, so the right message reaches the right person at the right time.",
   },
 ];
 
@@ -55,10 +102,42 @@ export default function Home() {
         <Label as="h2" className="text-base">
           Selected Work
         </Label>
-        <div className="mt-8 flex flex-col gap-6">
-          <TextLink href="#">Case study one</TextLink>
-          <TextLink href="#">Case study two</TextLink>
-          <TextLink href="#">Case study three</TextLink>
+        <div className="mt-10 flex flex-col gap-20">
+          {caseStudies.map((study, index) => (
+            <article
+              key={study.heading}
+              className={`max-w-2xl ${index % 2 === 1 ? "sm:ml-auto" : ""}`}
+            >
+              <Label>{study.category}</Label>
+              <h3 className="mt-4 text-3xl sm:text-4xl">{study.heading}</h3>
+              <p className="mt-4 text-lg text-ink/80">{study.summary}</p>
+              <div className="mt-8 space-y-6">
+                <div>
+                  <Label className="text-sm">Challenge</Label>
+                  <p className="mt-1 text-base text-ink/80">
+                    {study.challenge}
+                  </p>
+                </div>
+                <div>
+                  <Label className="text-sm">Approach</Label>
+                  <p className="mt-1 text-base text-ink/80">
+                    {study.approach}
+                  </p>
+                </div>
+                <div>
+                  <Label className="text-sm">Result</Label>
+                  <p className="mt-1 text-base text-ink/80">
+                    {study.result ? `${study.result} ` : null}
+                    {study.resultNote && (
+                      <span className="italic text-ink/50">
+                        {study.resultNote}
+                      </span>
+                    )}
+                  </p>
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
       </Section>
 
@@ -82,8 +161,8 @@ export default function Home() {
         <Label as="h2" className="text-base">
           About
         </Label>
-        <div className="mt-8 flex flex-col-reverse gap-10 sm:flex-row sm:items-start">
-          <div className="flex-1 space-y-6 text-lg text-ink/80">
+        <div className="mt-8 flex flex-col-reverse gap-10 sm:flex-row sm:items-start sm:justify-between">
+          <div className="max-w-2xl flex-1 space-y-6 text-lg text-ink/80">
             <p>
               I&apos;m Sophia, a CRM and email marketer who builds lifecycle
               systems for retail brands. For the last few years I&apos;ve run
