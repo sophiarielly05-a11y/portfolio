@@ -2,10 +2,11 @@ import Link from "next/link";
 import TextLink from "./TextLink";
 
 const navItems = [
-  { label: "Work", href: "#selected-work" },
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Work", href: "/#selected-work" },
+  { label: "Emails", href: "/work/emails" },
+  { label: "Services", href: "/#services" },
+  { label: "About", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Header() {
