@@ -4,6 +4,38 @@ import TextLink from "@/components/TextLink";
 import Button from "@/components/Button";
 import Section from "@/components/Section";
 
+const proofPoints = [
+  { accent: "17+", rest: "automations built" },
+  { accent: "XX%", rest: "average open rate" },
+  { accent: "Award-shortlisted", rest: "campaign" },
+  { accent: "Emarsys", rest: "specialist" },
+];
+
+const results = [
+  {
+    value: "17+",
+    label: "Automated journeys",
+    context:
+      "A full customer and dealer lifecycle built in Emarsys, replacing manual sends.",
+  },
+  {
+    value: "XX%",
+    label: "Average open rate",
+    context: "Lifecycle comms opened well above industry benchmarks.",
+  },
+  {
+    value: "3",
+    label: "Intent-based segments",
+    context:
+      "Audiences built from real customer data and buying intent, not guesswork.",
+  },
+  {
+    value: "1",
+    label: "Award-shortlisted campaign",
+    context: "An EOFY campaign recognised at the Finder Innovation Awards.",
+  },
+];
+
 const caseStudies = [
   {
     category: "Lifecycle & Automation",
@@ -49,28 +81,24 @@ const caseStudies = [
 
 const services = [
   {
-    title: "Welcome & onboarding",
-    body: "First impressions that convert. A welcome series that introduces your brand, sets expectations, and moves a new subscriber towards their first order.",
+    tags: ["Welcome", "Post-purchase", "Win-back", "Abandoned cart"],
+    title: "Lifecycle and automation",
+    body: "The automations that carry a customer from first sign-up to repeat buyer: welcome series that convert, post-purchase flows that bring people back, and win-back journeys that recover anyone who's gone quiet.",
   },
   {
-    title: "Post-purchase & retention",
-    body: "The follow-through after checkout. Order updates, cross-sells and replenishment prompts that bring first-time buyers back for a second and third order.",
-  },
-  {
-    title: "Win-back & re-engagement",
-    body: "Reviving customers who have gone quiet. Timed win-back journeys and re-engagement sends that recover lapsed buyers before you lose them for good.",
-  },
-  {
+    tags: ["Customer", "Trade", "Editorial"],
     title: "Newsletters",
-    body: "Customer and trade newsletters with a voice worth opening. Built to hold attention and earn clicks, not just announce this week's news and offers.",
+    body: "Customer and trade newsletters with a voice worth opening, built to hold attention and earn clicks rather than just announce this week's news and offers.",
   },
   {
-    title: "Reviews & social proof",
-    body: "Automated review-collection flows into Trustpilot and similar, timed to peak satisfaction, turning happy buyers into ratings that sell to the next customer.",
+    tags: ["Trustpilot", "Post-purchase", "Follow-ups"],
+    title: "Reviews and social proof",
+    body: "Automated review-collection flows into Trustpilot and similar, timed to peak satisfaction and followed up for anyone who doesn't open the first send, turning happy buyers into ratings that sell to the next customer.",
   },
   {
-    title: "Segmentation & strategy",
-    body: "Audience segments built from your data, plus a campaign plan for launches and sales, so the right message reaches the right person at the right time.",
+    tags: ["Intent-based", "Behavioural", "Data-led"],
+    title: "Nurture and segmentation",
+    body: "Audience segments built from real customer data, intent and behaviour, plus a campaign plan for launches and sales, so the right message reaches the right person at the right time.",
   },
 ];
 
@@ -96,7 +124,46 @@ export default function Home() {
             </TextLink>
           </div>
         </div>
+        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+          {proofPoints.map((point, index) => (
+            <span key={point.rest} className="flex items-center gap-6">
+              {index > 0 && (
+                <span
+                  aria-hidden="true"
+                  className="hidden h-3.5 w-px bg-ink/15 sm:block"
+                />
+              )}
+              <Label>
+                <span className="text-accent">{point.accent}</span>{" "}
+                {point.rest}
+              </Label>
+            </span>
+          ))}
+        </div>
       </section>
+
+      <Section id="results">
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl">
+          Results that compound
+        </h2>
+        <p className="mt-4 max-w-xl text-lg text-ink/80">
+          The impact behind the lifecycle systems and campaigns below.
+        </p>
+        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {results.map((result) => (
+            <div
+              key={result.label}
+              className="rounded-2xl border border-ink/10 p-8 sm:p-10"
+            >
+              <p className="font-display text-5xl text-accent sm:text-6xl">
+                {result.value}
+              </p>
+              <Label className="mt-4 block text-sm">{result.label}</Label>
+              <p className="mt-2 text-base text-ink/80">{result.context}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
 
       <Section id="selected-work" className="bg-accent/5">
         <Label as="h2" className="text-base">
@@ -145,13 +212,37 @@ export default function Home() {
         <Label as="h2" className="text-base">
           Services
         </Label>
-        <div className="mt-10 grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
-          {services.map((service) => (
-            <div key={service.title}>
-              <h3 className="font-body text-xl font-bold text-ink">
-                {service.title}
-              </h3>
-              <p className="mt-2 text-base text-ink/80">{service.body}</p>
+        <div className="mt-12 flex flex-col gap-16 sm:gap-24">
+          {services.map((service, index) => (
+            <div
+              key={service.title}
+              className={`flex flex-col gap-8 sm:items-center sm:gap-12 ${
+                index % 2 === 1 ? "sm:flex-row-reverse" : "sm:flex-row"
+              }`}
+            >
+              <div className="flex aspect-[4/5] w-full items-center justify-center rounded-2xl border border-ink/10 bg-ink/5 sm:w-1/2">
+                <Label className="text-ink/40">Email mockup</Label>
+              </div>
+              <div className="w-full sm:w-1/2">
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                  {service.tags.map((tag, tagIndex) => (
+                    <span key={tag} className="flex items-center gap-4">
+                      {tagIndex > 0 && (
+                        <span
+                          aria-hidden="true"
+                          className="h-3 w-px bg-ink/15"
+                        />
+                      )}
+                      <Label className="text-xs">{tag}</Label>
+                    </span>
+                  ))}
+                </div>
+                <h3 className="mt-4 text-3xl sm:text-4xl">{service.title}</h3>
+                <p className="mt-4 text-lg text-ink/80">{service.body}</p>
+                <TextLink href="#" className="mt-6 inline-block">
+                  How it works
+                </TextLink>
+              </div>
             </div>
           ))}
         </div>
