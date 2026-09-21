@@ -243,75 +243,111 @@ export default function Home() {
         </div>
       </FeatureSection>
 
-      <Section id="selected-work">
+      <FeatureSection id="selected-work">
         <EyebrowLabel as="h2" tone="heading">
           Selected Work
         </EyebrowLabel>
-        <div className="mt-10 flex flex-col gap-20">
+        <div className="mt-12 flex flex-col gap-16 sm:gap-24">
           {caseStudies.map((study, index) => (
-            <article
+            <div
               key={study.heading}
-              className={`max-w-2xl rounded-2xl border border-ink/10 bg-white p-8 sm:p-10 ${index % 2 === 1 ? "sm:ml-auto" : ""}`}
+              className={`flex flex-col gap-8 sm:items-center sm:gap-12 ${
+                index % 2 === 1 ? "sm:flex-row-reverse" : "sm:flex-row"
+              }`}
             >
-              <EyebrowLabel tone="heading">{study.category}</EyebrowLabel>
-              <h3 className="mt-4 text-3xl sm:text-4xl">{study.heading}</h3>
-              <p className="mt-4 text-lg text-ink">{study.summary}</p>
-              <div className="mt-8 space-y-6">
-                <div>
-                  <EyebrowLabel>Challenge</EyebrowLabel>
-                  <p className="mt-1 text-base text-warm-grey">
-                    {study.challenge}
-                  </p>
-                </div>
-                <div>
-                  <EyebrowLabel>Approach</EyebrowLabel>
-                  <p className="mt-1 text-base text-warm-grey">
-                    {study.approach}
-                  </p>
-                </div>
-                <div>
-                  <EyebrowLabel>Result</EyebrowLabel>
-                  <p className="mt-1 text-base text-warm-grey">
-                    {study.result ? `${study.result} ` : null}
-                    {study.resultNote && (
-                      <span className="italic text-warm-grey/70">
-                        {study.resultNote}
-                      </span>
-                    )}
-                  </p>
+              <ImageFrame label="Case study" className="sm:w-1/2" />
+              <div className="w-full sm:w-1/2">
+                <EyebrowLabel tone="heading">{study.category}</EyebrowLabel>
+                <h3 className="mt-4 text-3xl sm:text-4xl">{study.heading}</h3>
+                <p className="mt-4 text-lg text-ink">{study.summary}</p>
+                <div className="mt-6 space-y-4">
+                  <div>
+                    <EyebrowLabel tone="heading">Challenge</EyebrowLabel>
+                    <p className="mt-1 text-base text-ink/80">
+                      {study.challenge}
+                    </p>
+                  </div>
+                  <div>
+                    <EyebrowLabel tone="heading">Approach</EyebrowLabel>
+                    <p className="mt-1 text-base text-ink/80">
+                      {study.approach}
+                    </p>
+                  </div>
+                  <div>
+                    <EyebrowLabel tone="heading">Result</EyebrowLabel>
+                    <p className="mt-1 text-base text-ink/80">
+                      {study.result ? `${study.result} ` : null}
+                      {study.resultNote && (
+                        <span className="italic text-ink/60">
+                          {study.resultNote}
+                        </span>
+                      )}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </article>
+            </div>
           ))}
         </div>
+      </FeatureSection>
+
+      <Section>
+        <EyebrowLabel as="h2" tone="heading">
+          Email Design
+        </EyebrowLabel>
+        <p className="mt-4 max-w-xl text-lg text-ink">
+          A taste of the lifecycle and campaign emails in the full gallery.
+        </p>
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
+          <ImageFrame label="Email" />
+          <ImageFrame label="Email" />
+          <ImageFrame label="Email" />
+        </div>
+        <TextLink href="/work/emails" className="mt-8 inline-block">
+          See all emails →
+        </TextLink>
       </Section>
 
       <Section id="services">
-        <div className="rounded-2xl border border-ink/10 bg-white p-8 sm:p-10">
-          <EyebrowLabel as="h2" tone="heading">
-            Services
-          </EyebrowLabel>
-          <p className="mt-4 max-w-xl text-lg text-ink">
-            Lifecycle flows, newsletters, reviews and the segmentation behind
-            them.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-lg text-ink">
-            {services.map((service, index) => (
-              <span key={service.title} className="flex items-center gap-6">
-                {index > 0 && (
-                  <span
-                    aria-hidden="true"
-                    className="hidden h-4 w-px bg-ink/15 sm:block"
-                  />
-                )}
-                {service.title}
-              </span>
-            ))}
-          </div>
-          <TextLink href="/services" className="mt-8 inline-block">
-            See all services →
-          </TextLink>
+        <EyebrowLabel as="h2" tone="heading">
+          Services
+        </EyebrowLabel>
+        <p className="mt-4 max-w-xl text-lg text-ink">
+          Lifecycle flows, newsletters, reviews and the segmentation behind
+          them.
+        </p>
+        <div className="mt-12 flex flex-col gap-16 sm:gap-24">
+          {services.map((service, index) => (
+            <div
+              key={service.title}
+              className={`flex flex-col gap-8 sm:items-center sm:gap-12 ${
+                index % 2 === 1 ? "sm:flex-row-reverse" : "sm:flex-row"
+              }`}
+            >
+              <ImageFrame label="Email mockup" className="sm:w-1/2" />
+              <div className="w-full sm:w-1/2">
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                  {service.tags.map((tag, tagIndex) => (
+                    <span key={tag} className="flex items-center gap-4">
+                      {tagIndex > 0 && (
+                        <span
+                          aria-hidden="true"
+                          className="h-3 w-px bg-ink/15"
+                        />
+                      )}
+                      <EyebrowLabel>{tag}</EyebrowLabel>
+                    </span>
+                  ))}
+                </div>
+                <h3 className="mt-4 text-3xl sm:text-4xl">{service.title}</h3>
+                <p className="mt-4 text-lg text-ink">{service.body}</p>
+              </div>
+            </div>
+          ))}
         </div>
+        <TextLink href="/services" className="mt-12 inline-block">
+          See all services →
+        </TextLink>
       </Section>
 
       <Section id="how-i-work">
@@ -342,6 +378,15 @@ export default function Home() {
               </ul>
             </div>
           ))}
+        </div>
+      </Section>
+
+      <Section>
+        <div className="mx-auto max-w-3xl">
+          <QuoteCard
+            quote="[Add a client or manager quote]"
+            attribution="[Add name] — [Add role and company]"
+          />
         </div>
       </Section>
 
