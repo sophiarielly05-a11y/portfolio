@@ -3,6 +3,7 @@ import Label from "@/components/Label";
 import TextLink from "@/components/TextLink";
 import Button from "@/components/Button";
 import Section from "@/components/Section";
+import Faq from "@/components/Faq";
 
 const proofPoints = [
   { accent: "17+", rest: "automations built" },
@@ -34,6 +35,85 @@ const results = [
     label: "Award-shortlisted campaign",
     context: "An EOFY campaign recognised at the Finder Innovation Awards.",
   },
+];
+
+const processSteps = [
+  {
+    number: "01",
+    title: "Audit and map",
+    summary: "Understand the customer, the data and the gaps.",
+    bullets: ["Lifecycle audit", "Segmentation review", "Journey mapping"],
+  },
+  {
+    number: "02",
+    title: "Build and launch",
+    summary: "Turn the map into working flows and sends.",
+    bullets: ["Automation build", "Copy and design", "QA and testing"],
+  },
+  {
+    number: "03",
+    title: "Measure and improve",
+    summary: "Report against what matters and iterate.",
+    bullets: [
+      "Open, click and revenue reporting",
+      "A/B testing",
+      "Ongoing optimisation",
+    ],
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "[Add a quote from a manager about the impact of the work.]",
+    name: "[Add name]",
+    role: "[Add role and company]",
+  },
+  {
+    quote:
+      "[Add a quote from a client or stakeholder about results delivered.]",
+    name: "[Add name]",
+    role: "[Add role and company]",
+  },
+  {
+    quote:
+      "[Add a quote from a colleague about ways of working together.]",
+    name: "[Add name]",
+    role: "[Add role and company]",
+  },
+];
+
+const faqItems = [
+  {
+    question: "What do you actually do?",
+    answer:
+      "I build and run email marketing: lifecycle flows, newsletters, review automations, and the segmentation behind them.",
+  },
+  {
+    question: "What platforms do you work in?",
+    answer:
+      "Primarily Emarsys, and I adapt to your stack. [edit to list the platforms you actually work in]",
+  },
+  {
+    question: "How do you price?",
+    answer:
+      "Per project or a monthly retainer, scoped to the work, quoted after a quick call.",
+  },
+  {
+    question: "How fast will I see results?",
+    answer:
+      "Flows can be live within a couple of weeks; retention gains compound over the following months.",
+  },
+  {
+    question: "Can you work with my in-house team?",
+    answer: "Yes, I can own email end to end or plug in alongside your team.",
+  },
+];
+
+const contactBullets = [
+  "A look at where your email is leaking revenue",
+  "A clear first move",
+  "A no-pressure quote",
 ];
 
 const caseStudies = [
@@ -248,6 +328,56 @@ export default function Home() {
         </div>
       </Section>
 
+      <Section id="how-i-work">
+        <Label as="h2" className="text-base">
+          How I Work
+        </Label>
+        <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-10">
+          {processSteps.map((step) => (
+            <div key={step.number}>
+              <p className="font-display text-3xl text-accent sm:text-4xl">
+                {step.number}
+              </p>
+              <h3 className="mt-3 text-2xl sm:text-3xl">{step.title}</h3>
+              <p className="mt-2 text-base text-ink/80">{step.summary}</p>
+              <ul className="mt-4 space-y-2">
+                {step.bullets.map((bullet) => (
+                  <li
+                    key={bullet}
+                    className="flex items-start gap-2 text-sm text-ink/70"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent"
+                    />
+                    {bullet}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section id="testimonials">
+        <Label as="h2" className="text-base">
+          Testimonials
+        </Label>
+        <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3">
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className="border-t border-ink/10 pt-8">
+              <p className="text-lg italic text-ink/50">
+                {testimonial.quote}
+              </p>
+              <p className="mt-4 font-medium text-accent">
+                {testimonial.name}
+              </p>
+              <Label className="mt-1 text-xs">{testimonial.role}</Label>
+            </div>
+          ))}
+        </div>
+      </Section>
+
       <Section id="about" className="bg-accent/5">
         <Label as="h2" className="text-base">
           About
@@ -276,21 +406,61 @@ export default function Home() {
         </div>
       </Section>
 
+      <Section id="faq">
+        <Label as="h2" className="text-base">
+          FAQ
+        </Label>
+        <div className="mt-10">
+          <Faq items={faqItems} />
+        </div>
+      </Section>
+
       <Section id="contact">
         <h2 className="text-5xl leading-none sm:text-6xl lg:text-7xl">
           Let&apos;s talk
         </h2>
         <p className="mt-6 max-w-md text-lg text-ink/80">
-          Got a list that could be doing more? Tell me about your brand and
-          where email is falling short, and I&apos;ll come back with where
-          I&apos;d start.
+          Tell me where email is falling short and I&apos;ll tell you where to
+          start.
         </p>
-        <Link
-          href="mailto:sophia.rielly05@gmail.com"
-          className="mt-8 inline-block rounded-sm text-2xl break-words text-accent underline decoration-2 underline-offset-8 outline-hidden transition-opacity hover:opacity-80 focus-visible:[outline:2px_solid_var(--color-ink)] focus-visible:[outline-offset:4px] motion-reduce:transition-none sm:text-4xl lg:text-5xl"
-        >
-          sophia.rielly05@gmail.com
-        </Link>
+        <div className="mt-12 flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-20">
+          <div>
+            <Label className="text-sm">What you&apos;ll get</Label>
+            <ul className="mt-4 space-y-3 text-lg text-ink/80">
+              {contactBullets.map((bullet) => (
+                <li key={bullet} className="flex items-start gap-3">
+                  <span
+                    aria-hidden="true"
+                    className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
+                  />
+                  {bullet}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="flex flex-col items-start gap-4">
+            <Link
+              href="mailto:sophia.rielly05@gmail.com"
+              className="inline-block rounded-sm text-2xl break-words text-accent underline decoration-2 underline-offset-8 outline-hidden transition-opacity hover:opacity-80 focus-visible:[outline:2px_solid_var(--color-ink)] focus-visible:[outline-offset:4px] motion-reduce:transition-none sm:text-4xl lg:text-5xl"
+            >
+              sophia.rielly05@gmail.com
+            </Link>
+            <TextLink href="#" className="text-lg">
+              Book a call
+            </TextLink>
+          </div>
+        </div>
+      </Section>
+
+      <Section className="bg-accent">
+        <div className="mx-auto flex max-w-2xl flex-col items-center gap-8 text-center">
+          <p className="font-display text-2xl text-white sm:text-3xl lg:text-4xl">
+            Your list is already worth more than it&apos;s earning.
+          </p>
+          <Button href="mailto:sophia.rielly05@gmail.com" variant="invert">
+            Start a project
+          </Button>
+        </div>
       </Section>
     </main>
   );
