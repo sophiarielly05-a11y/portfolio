@@ -12,11 +12,19 @@ export default function Section({
   ...props
 }: SectionProps) {
   const ref = useRef<HTMLElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  // Default to visible: content already on screen (or scrolled past) at mount
+  // must never be stuck invisible. Only content starting below the viewport
+  // gets hidden and animated in as the user scrolls down to it.
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
+
+    const isBelowViewport = node.getBoundingClientRect().top >= window.innerHeight;
+    if (!isBelowViewport) return;
+
+    setIsVisible(false);
 
     const observer = new IntersectionObserver(
       ([entry]) => {

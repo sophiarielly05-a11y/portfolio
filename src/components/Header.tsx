@@ -30,7 +30,7 @@ export default function Header() {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-background/70 py-4 backdrop-blur-md sm:py-6">
+    <header className="sticky top-0 z-40 w-full border-b border-ink/10 bg-background py-4 sm:py-6">
       <Container className="flex items-center justify-between">
         <Link
           href="/"

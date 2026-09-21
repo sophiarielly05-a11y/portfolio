@@ -21,8 +21,7 @@
   --font-body: var(--font-inter);
 }
 
-html,
-body {
+html {
   overflow-x: hidden;
 }
 
