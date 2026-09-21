@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Section from "@/components/Section";
-import Label from "@/components/Label";
+import EyebrowLabel from "@/components/EyebrowLabel";
 import TextLink from "@/components/TextLink";
+import ImageFrame from "@/components/ImageFrame";
 import { services } from "@/data/services";
 
 export const metadata: Metadata = {
@@ -30,9 +31,7 @@ export default function ServicesPage() {
                 index % 2 === 1 ? "sm:flex-row-reverse" : "sm:flex-row"
               }`}
             >
-              <div className="flex aspect-[4/5] w-full items-center justify-center rounded-2xl border border-ink/10 bg-cream sm:w-1/2">
-                <Label className="opacity-60">Email mockup</Label>
-              </div>
+              <ImageFrame label="Email mockup" className="sm:w-1/2" />
               <div className="w-full sm:w-1/2">
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                   {service.tags.map((tag, tagIndex) => (
@@ -43,7 +42,7 @@ export default function ServicesPage() {
                           className="h-3 w-px bg-ink/15"
                         />
                       )}
-                      <Label className="text-xs">{tag}</Label>
+                      <EyebrowLabel>{tag}</EyebrowLabel>
                     </span>
                   ))}
                 </div>

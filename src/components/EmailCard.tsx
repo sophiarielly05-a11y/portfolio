@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Label from "./Label";
+import EyebrowLabel from "./EyebrowLabel";
 import type { EmailItem } from "@/data/emails";
 
 type EmailCardProps = {
@@ -12,7 +12,7 @@ export default function EmailCard({ email, onOpen }: EmailCardProps) {
     <button
       type="button"
       onClick={onOpen}
-      className="mb-6 block w-full break-inside-avoid overflow-hidden rounded-2xl border border-ink/10 bg-cream text-left outline-hidden transition-shadow hover:shadow-lg focus-visible:[outline:2px_solid_var(--color-ink)] focus-visible:[outline-offset:4px]"
+      className="mb-6 block w-full break-inside-avoid overflow-hidden rounded-2xl border border-ink/10 bg-white text-left outline-hidden transition-shadow hover:shadow-lg focus-visible:[outline:2px_solid_var(--color-ink)] focus-visible:[outline-offset:4px]"
     >
       <div className="relative h-64 w-full overflow-hidden bg-ink/5">
         <Image
@@ -25,7 +25,7 @@ export default function EmailCard({ email, onOpen }: EmailCardProps) {
         />
       </div>
       <div className="p-4">
-        <Label className="text-xs">{email.category}</Label>
+        <EyebrowLabel>{email.category}</EyebrowLabel>
         {email.title && (
           <p className="mt-2 font-medium text-ink">{email.title}</p>
         )}

@@ -7,7 +7,7 @@ export default function ContactForm() {
 
   if (state.succeeded) {
     return (
-      <div className="rounded-2xl border border-ink/10 bg-cream p-8 text-center">
+      <div className="rounded-2xl border border-ink/10 bg-white p-8 text-center">
         <h3 className="font-display text-2xl text-accent">Message sent.</h3>
         <p className="mt-2 text-ink">
           That has landed in my inbox. I will get back to you within a day.
@@ -19,7 +19,7 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="space-y-5 rounded-2xl border border-ink/10 bg-cream p-6 sm:p-8"
+      className="space-y-5 rounded-2xl border border-ink/10 bg-white p-6 sm:p-8"
     >
       {/* Formspree spam honeypot: bots fill this, humans never see it */}
       <input

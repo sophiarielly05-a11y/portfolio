@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import TextLink from "./TextLink";
-import Button from "./Button";
+import PillButton from "./PillButton";
 import Container from "./Container";
 
 const navItems = [
@@ -46,9 +46,9 @@ export default function Header() {
               {item.label}
             </TextLink>
           ))}
-          <Button href="/#contact" variant="nav">
+          <PillButton href="/#contact" size="sm">
             Start a project
-          </Button>
+          </PillButton>
         </nav>
 
         <button
@@ -95,9 +95,9 @@ export default function Header() {
                 {item.label}
               </TextLink>
             ))}
-            <Button href="/#contact" variant="nav" onClick={closeMenu}>
+            <PillButton href="/#contact" size="sm" onClick={closeMenu}>
               Start a project
-            </Button>
+            </PillButton>
           </nav>
         </Container>
       )}

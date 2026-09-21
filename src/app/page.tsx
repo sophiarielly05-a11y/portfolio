@@ -1,8 +1,12 @@
-import Label from "@/components/Label";
+import EyebrowLabel from "@/components/EyebrowLabel";
 import TextLink from "@/components/TextLink";
-import Button from "@/components/Button";
+import PillButton from "@/components/PillButton";
 import Section from "@/components/Section";
+import FeatureSection from "@/components/FeatureSection";
 import Container from "@/components/Container";
+import Marquee from "@/components/Marquee";
+import QuoteCard from "@/components/QuoteCard";
+import ImageFrame from "@/components/ImageFrame";
 import Faq from "@/components/Faq";
 import ContactForm from "@/components/ContactForm";
 import { services } from "@/data/services";
@@ -166,25 +170,30 @@ export default function Home() {
     <main className="flex flex-1 flex-col">
       <section className="flex min-h-dvh flex-col justify-center py-16">
         <Container>
-          <div className="max-w-xl">
-            <Label tone="heading">CRM & Email Strategy</Label>
-            <h1 className="mt-6 text-6xl leading-[0.85] text-accent sm:text-8xl lg:text-9xl">
-              <span className="block">Sophia</span>
-              <span className="block">Rielly</span>
-            </h1>
-            <p className="mt-8 max-w-md text-lg text-ink">
-              Lifecycle email and automation for e-commerce and retail
-              brands. Flows, newsletters, reviews and win-backs that grow
-              revenue from the audience you already have.
-            </p>
-            <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8">
-              <Button href="#selected-work">See the work</Button>
-              <TextLink href="mailto:sophia.rielly05@gmail.com">
-                Start a project
-              </TextLink>
+          <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center lg:gap-20">
+            <div>
+              <EyebrowLabel tone="heading" variant="highlight">
+                CRM & email strategy
+              </EyebrowLabel>
+              <h1 className="mt-6 text-[clamp(3rem,11vw,8rem)] leading-[0.85] text-accent">
+                <span className="block">Sophia</span>
+                <span className="block">Rielly</span>
+              </h1>
+              <p className="mt-8 max-w-md text-lg text-warm-grey">
+                Lifecycle email and automation for e-commerce and retail
+                brands. Flows, newsletters, reviews and win-backs that grow
+                revenue from the audience you already have.
+              </p>
+              <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8">
+                <PillButton href="#selected-work">See the work</PillButton>
+                <TextLink href="mailto:sophia.rielly05@gmail.com">
+                  Start a project
+                </TextLink>
+              </div>
             </div>
+            <ImageFrame label="Portrait" aspect="4/5" className="w-full" />
           </div>
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+          <div className="mt-16 flex flex-wrap items-center gap-x-6 gap-y-2">
             {proofPoints.map((point, index) => (
               <span key={point.rest} className="flex items-center gap-6">
                 {index > 0 && (
@@ -193,69 +202,75 @@ export default function Home() {
                     className="hidden h-3.5 w-px bg-ink/15 sm:block"
                   />
                 )}
-                <Label>
+                <EyebrowLabel>
                   <span className="text-accent">{point.accent}</span>{" "}
                   {point.rest}
-                </Label>
+                </EyebrowLabel>
               </span>
             ))}
           </div>
         </Container>
       </section>
 
-      <Section id="results">
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl">
-          Results that compound
-        </h2>
-        <p className="mt-4 max-w-xl text-lg text-ink">
-          The impact behind the lifecycle systems and campaigns below.
-        </p>
+      <Marquee text="CRM ✦ Email ✦ Lifecycle ✦ Automation ✦ Newsletters ✦" />
+
+      <FeatureSection id="results">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl">
+            Results that compound
+          </h2>
+          <p className="max-w-xl text-lg text-ink">
+            The impact behind the lifecycle systems and campaigns below.
+          </p>
+        </div>
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {results.map((result) => (
             <div
               key={result.label}
-              className="rounded-2xl border border-ink/10 bg-cream p-8 sm:p-10"
+              className="rounded-2xl border border-ink/10 bg-white p-8 sm:p-10"
             >
               <p className="font-display text-5xl text-accent sm:text-6xl">
                 {result.value}
               </p>
-              <Label className="mt-4 block text-sm">{result.label}</Label>
+              <EyebrowLabel as="p" className="mt-4">
+                {result.label}
+              </EyebrowLabel>
               <p className="mt-2 text-base text-warm-grey">
                 {result.context}
               </p>
             </div>
           ))}
         </div>
-      </Section>
+      </FeatureSection>
 
       <Section id="selected-work">
-        <Label as="h2" className="text-base" tone="heading">
+        <EyebrowLabel as="h2" tone="heading">
           Selected Work
-        </Label>
+        </EyebrowLabel>
         <div className="mt-10 flex flex-col gap-20">
           {caseStudies.map((study, index) => (
             <article
               key={study.heading}
-              className={`max-w-2xl rounded-2xl border border-ink/10 bg-cream p-8 sm:p-10 ${index % 2 === 1 ? "sm:ml-auto" : ""}`}
+              className={`max-w-2xl rounded-2xl border border-ink/10 bg-white p-8 sm:p-10 ${index % 2 === 1 ? "sm:ml-auto" : ""}`}
             >
-              <Label tone="heading">{study.category}</Label>
+              <EyebrowLabel tone="heading">{study.category}</EyebrowLabel>
               <h3 className="mt-4 text-3xl sm:text-4xl">{study.heading}</h3>
               <p className="mt-4 text-lg text-ink">{study.summary}</p>
               <div className="mt-8 space-y-6">
                 <div>
-                  <Label className="text-sm">Challenge</Label>
+                  <EyebrowLabel>Challenge</EyebrowLabel>
                   <p className="mt-1 text-base text-warm-grey">
                     {study.challenge}
                   </p>
                 </div>
                 <div>
-                  <Label className="text-sm">Approach</Label>
+                  <EyebrowLabel>Approach</EyebrowLabel>
                   <p className="mt-1 text-base text-warm-grey">
                     {study.approach}
                   </p>
                 </div>
                 <div>
-                  <Label className="text-sm">Result</Label>
+                  <EyebrowLabel>Result</EyebrowLabel>
                   <p className="mt-1 text-base text-warm-grey">
                     {study.result ? `${study.result} ` : null}
                     {study.resultNote && (
@@ -272,10 +287,10 @@ export default function Home() {
       </Section>
 
       <Section id="services">
-        <div className="rounded-2xl border border-ink/10 bg-cream p-8 sm:p-10">
-          <Label as="h2" className="text-base" tone="heading">
+        <div className="rounded-2xl border border-ink/10 bg-white p-8 sm:p-10">
+          <EyebrowLabel as="h2" tone="heading">
             Services
-          </Label>
+          </EyebrowLabel>
           <p className="mt-4 max-w-xl text-lg text-ink">
             Lifecycle flows, newsletters, reviews and the segmentation behind
             them.
@@ -300,9 +315,9 @@ export default function Home() {
       </Section>
 
       <Section id="how-i-work">
-        <Label as="h2" className="text-base" tone="heading">
+        <EyebrowLabel as="h2" tone="heading">
           How I Work
-        </Label>
+        </EyebrowLabel>
         <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-10">
           {processSteps.map((step) => (
             <div key={step.number}>
@@ -331,28 +346,24 @@ export default function Home() {
       </Section>
 
       <Section id="testimonials">
-        <Label as="h2" className="text-base" tone="heading">
+        <EyebrowLabel as="h2" tone="heading">
           Testimonials
-        </Label>
-        <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3">
+        </EyebrowLabel>
+        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="border-t border-ink/10 pt-8">
-              <p className="text-lg italic text-warm-grey/70">
-                {testimonial.quote}
-              </p>
-              <p className="mt-4 font-medium text-accent">
-                {testimonial.name}
-              </p>
-              <Label className="mt-1 text-xs">{testimonial.role}</Label>
-            </div>
+            <QuoteCard
+              key={index}
+              quote={testimonial.quote}
+              attribution={`${testimonial.name} — ${testimonial.role}`}
+            />
           ))}
         </div>
       </Section>
 
       <Section id="about">
-        <Label as="h2" className="text-base" tone="heading">
+        <EyebrowLabel as="h2" tone="heading">
           About
-        </Label>
+        </EyebrowLabel>
         <div className="mt-8 flex flex-col-reverse gap-10 sm:flex-row sm:items-start sm:justify-between">
           <div className="max-w-2xl flex-1 space-y-6 text-lg text-ink">
             <p>
@@ -371,32 +382,32 @@ export default function Home() {
               isn&apos;t pulling its weight, that&apos;s the gap I close.
             </p>
           </div>
-          <div className="flex aspect-[4/5] w-full shrink-0 items-center justify-center rounded-2xl border border-ink/10 bg-cream sm:w-48">
-            <Label className="opacity-60">Photo</Label>
-          </div>
+          <ImageFrame label="Photo" className="shrink-0 sm:w-48" />
         </div>
       </Section>
 
       <Section id="faq">
-        <Label as="h2" className="text-base" tone="heading">
+        <EyebrowLabel as="h2" tone="heading">
           FAQ
-        </Label>
+        </EyebrowLabel>
         <div className="mt-10">
           <Faq items={faqItems} />
         </div>
       </Section>
 
       <Section id="contact">
-        <h2 className="text-5xl leading-none sm:text-6xl lg:text-7xl">
-          Let&apos;s talk
-        </h2>
-        <p className="mt-6 max-w-md text-lg text-ink">
-          Tell me where email is falling short and I&apos;ll tell you where to
-          start.
-        </p>
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <h2 className="text-5xl leading-none sm:text-6xl lg:text-7xl">
+            Let&apos;s talk
+          </h2>
+          <p className="max-w-md text-lg text-ink">
+            Tell me where email is falling short and I&apos;ll tell you where
+            to start.
+          </p>
+        </div>
         <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
-            <Label className="text-sm">What you&apos;ll get</Label>
+            <EyebrowLabel>What you&apos;ll get</EyebrowLabel>
             <ul className="mt-4 space-y-3 text-lg text-warm-grey">
               {contactBullets.map((bullet) => (
                 <li key={bullet} className="flex items-start gap-3">
@@ -413,16 +424,16 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section>
-        <div className="mx-auto flex max-w-2xl flex-col items-center gap-8 rounded-2xl border border-ink/10 bg-cream p-8 text-center sm:p-12">
+      <FeatureSection>
+        <div className="mx-auto flex max-w-2xl flex-col items-center gap-8 rounded-2xl border border-ink/10 bg-white p-8 text-center sm:p-12">
           <p className="font-display text-2xl text-accent sm:text-3xl lg:text-4xl">
             Your list is already worth more than it&apos;s earning.
           </p>
-          <Button href="mailto:sophia.rielly05@gmail.com">
+          <PillButton href="mailto:sophia.rielly05@gmail.com">
             Start a project
-          </Button>
+          </PillButton>
         </div>
-      </Section>
+      </FeatureSection>
     </main>
   );
 }
