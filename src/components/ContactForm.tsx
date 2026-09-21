@@ -42,7 +42,7 @@ export default function ContactForm() {
           type="text"
           name="name"
           required
-          className="mt-1 w-full rounded-lg border border-ink/15 bg-white px-3 py-2 text-ink outline-none focus:ring-2 focus:ring-ink"
+          className="mt-1 w-full rounded-lg border border-ink/15 bg-white px-3 py-2 text-ink outline-none focus:ring-2 focus:ring-accent"
         />
       </div>
 
@@ -55,13 +55,13 @@ export default function ContactForm() {
           type="email"
           name="email"
           required
-          className="mt-1 w-full rounded-lg border border-ink/15 bg-white px-3 py-2 text-ink outline-none focus:ring-2 focus:ring-ink"
+          className="mt-1 w-full rounded-lg border border-ink/15 bg-white px-3 py-2 text-ink outline-none focus:ring-2 focus:ring-accent"
         />
         <ValidationError
           prefix="Email"
           field="email"
           errors={state.errors}
-          className="mt-1 text-sm text-error"
+          className="mt-1 text-sm text-accent"
         />
       </div>
 
@@ -73,7 +73,7 @@ export default function ContactForm() {
           id="company"
           type="text"
           name="company"
-          className="mt-1 w-full rounded-lg border border-ink/15 bg-white px-3 py-2 text-ink outline-none focus:ring-2 focus:ring-ink"
+          className="mt-1 w-full rounded-lg border border-ink/15 bg-white px-3 py-2 text-ink outline-none focus:ring-2 focus:ring-accent"
         />
       </div>
 
@@ -86,25 +86,25 @@ export default function ContactForm() {
           name="message"
           rows={5}
           required
-          className="mt-1 w-full rounded-lg border border-ink/15 bg-white px-3 py-2 text-ink outline-none focus:ring-2 focus:ring-ink"
+          className="mt-1 w-full rounded-lg border border-ink/15 bg-white px-3 py-2 text-ink outline-none focus:ring-2 focus:ring-accent"
         />
         <ValidationError
           prefix="Message"
           field="message"
           errors={state.errors}
-          className="mt-1 text-sm text-error"
+          className="mt-1 text-sm text-accent"
         />
       </div>
 
       <button
         type="submit"
         disabled={state.submitting}
-        className="w-full rounded-lg bg-ink px-5 py-3 font-medium text-background transition hover:opacity-90 disabled:opacity-60"
+        className="w-full rounded-lg bg-accent px-5 py-3 font-medium text-white transition hover:opacity-90 disabled:opacity-60"
       >
         {state.submitting ? 'Sending…' : 'Send message'}
       </button>
 
-      <ValidationError errors={state.errors} className="text-sm text-error" />
+      <ValidationError errors={state.errors} className="text-sm text-accent" />
     </form>
   );
 }

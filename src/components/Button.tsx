@@ -2,13 +2,12 @@ import Link from "next/link";
 import type { ComponentPropsWithoutRef } from "react";
 
 type ButtonProps = ComponentPropsWithoutRef<typeof Link> & {
-  variant?: "default" | "nav" | "invert";
+  variant?: "default" | "nav";
 };
 
 const variantClasses: Record<NonNullable<ButtonProps["variant"]>, string> = {
-  default: "bg-ink px-6 py-3 text-base text-background",
-  nav: "bg-ink px-5 py-2 text-sm text-background",
-  invert: "bg-background px-6 py-3 text-base text-ink",
+  default: "bg-accent px-6 py-3 text-base text-white",
+  nav: "bg-accent px-5 py-2 text-sm text-white",
 };
 
 export default function Button({

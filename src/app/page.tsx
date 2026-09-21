@@ -272,29 +272,31 @@ export default function Home() {
       </Section>
 
       <Section id="services">
-        <Label as="h2" className="text-base" tone="heading">
-          Services
-        </Label>
-        <p className="mt-4 max-w-xl text-lg text-ink">
-          Lifecycle flows, newsletters, reviews and the segmentation behind
-          them.
-        </p>
-        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-lg text-ink">
-          {services.map((service, index) => (
-            <span key={service.title} className="flex items-center gap-6">
-              {index > 0 && (
-                <span
-                  aria-hidden="true"
-                  className="hidden h-4 w-px bg-ink/15 sm:block"
-                />
-              )}
-              {service.title}
-            </span>
-          ))}
+        <div className="rounded-2xl border border-ink/10 bg-cream p-8 sm:p-10">
+          <Label as="h2" className="text-base" tone="heading">
+            Services
+          </Label>
+          <p className="mt-4 max-w-xl text-lg text-ink">
+            Lifecycle flows, newsletters, reviews and the segmentation behind
+            them.
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-lg text-ink">
+            {services.map((service, index) => (
+              <span key={service.title} className="flex items-center gap-6">
+                {index > 0 && (
+                  <span
+                    aria-hidden="true"
+                    className="hidden h-4 w-px bg-ink/15 sm:block"
+                  />
+                )}
+                {service.title}
+              </span>
+            ))}
+          </div>
+          <TextLink href="/services" className="mt-8 inline-block">
+            See all services →
+          </TextLink>
         </div>
-        <TextLink href="/services" className="mt-8 inline-block">
-          See all services →
-        </TextLink>
       </Section>
 
       <Section id="how-i-work">
@@ -411,12 +413,12 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section className="bg-ink">
-        <div className="mx-auto flex max-w-2xl flex-col items-center gap-8 text-center">
-          <p className="font-display text-2xl text-background sm:text-3xl lg:text-4xl">
+      <Section>
+        <div className="mx-auto flex max-w-2xl flex-col items-center gap-8 rounded-2xl border border-ink/10 bg-cream p-8 text-center sm:p-12">
+          <p className="font-display text-2xl text-accent sm:text-3xl lg:text-4xl">
             Your list is already worth more than it&apos;s earning.
           </p>
-          <Button href="mailto:sophia.rielly05@gmail.com" variant="invert">
+          <Button href="mailto:sophia.rielly05@gmail.com">
             Start a project
           </Button>
         </div>
