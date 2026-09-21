@@ -13,7 +13,7 @@ export default function EmailsPage() {
     <main className="flex flex-1 flex-col">
       <Section>
         <h1 className="text-5xl leading-none sm:text-6xl">Emails</h1>
-        <p className="mt-6 max-w-xl text-lg text-warm-grey">
+        <p className="mt-6 max-w-xl text-lg text-ink">
           A working gallery of lifecycle, nurture and trade emails built for
           e-commerce and retail brands.
         </p>

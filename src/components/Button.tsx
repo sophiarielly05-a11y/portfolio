@@ -6,9 +6,9 @@ type ButtonProps = ComponentPropsWithoutRef<typeof Link> & {
 };
 
 const variantClasses: Record<NonNullable<ButtonProps["variant"]>, string> = {
-  default: "bg-accent px-6 py-3 text-base text-ink",
-  nav: "bg-accent px-5 py-2 text-sm text-white",
-  invert: "bg-background px-6 py-3 text-base text-accent",
+  default: "bg-ink px-6 py-3 text-base text-background",
+  nav: "bg-ink px-5 py-2 text-sm text-background",
+  invert: "bg-background px-6 py-3 text-base text-ink",
 };
 
 export default function Button({

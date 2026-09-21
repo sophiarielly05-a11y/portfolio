@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Bagel_Fat_One, Inter } from "next/font/google";
+import { Shantell_Sans, Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const bagelFatOne = Bagel_Fat_One({
-  variable: "--font-bagel-fat-one",
-  weight: "400",
+const shantellSans = Shantell_Sans({
+  variable: "--font-shantell-sans",
+  weight: "700",
   subsets: ["latin"],
 });
 
@@ -24,7 +24,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${bagelFatOne.variable} ${inter.variable} h-full antialiased`}
+      className={`${shantellSans.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-body">
         <Header />

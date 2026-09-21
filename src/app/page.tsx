@@ -167,12 +167,12 @@ export default function Home() {
       <section className="flex min-h-dvh flex-col justify-center py-16">
         <Container>
           <div className="max-w-xl">
-            <Label>CRM & Email Strategy</Label>
+            <Label tone="heading">CRM & Email Strategy</Label>
             <h1 className="mt-6 text-6xl leading-[0.85] text-accent sm:text-8xl lg:text-9xl">
               <span className="block">Sophia</span>
               <span className="block">Rielly</span>
             </h1>
-            <p className="mt-8 max-w-md text-lg text-warm-grey">
+            <p className="mt-8 max-w-md text-lg text-ink">
               Lifecycle email and automation for e-commerce and retail
               brands. Flows, newsletters, reviews and win-backs that grow
               revenue from the audience you already have.
@@ -203,18 +203,18 @@ export default function Home() {
         </Container>
       </section>
 
-      <Section id="results" className="bg-cream">
+      <Section id="results">
         <h2 className="text-4xl sm:text-5xl lg:text-6xl">
           Results that compound
         </h2>
-        <p className="mt-4 max-w-xl text-lg text-warm-grey">
+        <p className="mt-4 max-w-xl text-lg text-ink">
           The impact behind the lifecycle systems and campaigns below.
         </p>
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {results.map((result) => (
             <div
               key={result.label}
-              className="rounded-2xl border border-ink/10 bg-white p-8 sm:p-10"
+              className="rounded-2xl border border-ink/10 bg-cream p-8 sm:p-10"
             >
               <p className="font-display text-5xl text-accent sm:text-6xl">
                 {result.value}
@@ -229,18 +229,18 @@ export default function Home() {
       </Section>
 
       <Section id="selected-work">
-        <Label as="h2" className="text-base">
+        <Label as="h2" className="text-base" tone="heading">
           Selected Work
         </Label>
         <div className="mt-10 flex flex-col gap-20">
           {caseStudies.map((study, index) => (
             <article
               key={study.heading}
-              className={`max-w-2xl ${index % 2 === 1 ? "sm:ml-auto" : ""}`}
+              className={`max-w-2xl rounded-2xl border border-ink/10 bg-cream p-8 sm:p-10 ${index % 2 === 1 ? "sm:ml-auto" : ""}`}
             >
-              <Label>{study.category}</Label>
+              <Label tone="heading">{study.category}</Label>
               <h3 className="mt-4 text-3xl sm:text-4xl">{study.heading}</h3>
-              <p className="mt-4 text-lg text-warm-grey">{study.summary}</p>
+              <p className="mt-4 text-lg text-ink">{study.summary}</p>
               <div className="mt-8 space-y-6">
                 <div>
                   <Label className="text-sm">Challenge</Label>
@@ -271,11 +271,11 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section id="services" className="bg-cream">
-        <Label as="h2" className="text-base">
+      <Section id="services">
+        <Label as="h2" className="text-base" tone="heading">
           Services
         </Label>
-        <p className="mt-4 max-w-xl text-lg text-warm-grey">
+        <p className="mt-4 max-w-xl text-lg text-ink">
           Lifecycle flows, newsletters, reviews and the segmentation behind
           them.
         </p>
@@ -298,7 +298,7 @@ export default function Home() {
       </Section>
 
       <Section id="how-i-work">
-        <Label as="h2" className="text-base">
+        <Label as="h2" className="text-base" tone="heading">
           How I Work
         </Label>
         <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-10">
@@ -308,7 +308,7 @@ export default function Home() {
                 {step.number}
               </p>
               <h3 className="mt-3 text-2xl sm:text-3xl">{step.title}</h3>
-              <p className="mt-2 text-base text-warm-grey">{step.summary}</p>
+              <p className="mt-2 text-base text-ink">{step.summary}</p>
               <ul className="mt-4 space-y-2">
                 {step.bullets.map((bullet) => (
                   <li
@@ -328,8 +328,8 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section id="testimonials" className="bg-cream">
-        <Label as="h2" className="text-base">
+      <Section id="testimonials">
+        <Label as="h2" className="text-base" tone="heading">
           Testimonials
         </Label>
         <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3">
@@ -348,11 +348,11 @@ export default function Home() {
       </Section>
 
       <Section id="about">
-        <Label as="h2" className="text-base">
+        <Label as="h2" className="text-base" tone="heading">
           About
         </Label>
         <div className="mt-8 flex flex-col-reverse gap-10 sm:flex-row sm:items-start sm:justify-between">
-          <div className="max-w-2xl flex-1 space-y-6 text-lg text-warm-grey">
+          <div className="max-w-2xl flex-1 space-y-6 text-lg text-ink">
             <p>
               I&apos;m Sophia, a CRM and email marketer who builds lifecycle
               systems for retail brands. For the last few years I&apos;ve run
@@ -375,8 +375,8 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section id="faq" className="bg-cream">
-        <Label as="h2" className="text-base">
+      <Section id="faq">
+        <Label as="h2" className="text-base" tone="heading">
           FAQ
         </Label>
         <div className="mt-10">
@@ -388,7 +388,7 @@ export default function Home() {
         <h2 className="text-5xl leading-none sm:text-6xl lg:text-7xl">
           Let&apos;s talk
         </h2>
-        <p className="mt-6 max-w-md text-lg text-warm-grey">
+        <p className="mt-6 max-w-md text-lg text-ink">
           Tell me where email is falling short and I&apos;ll tell you where to
           start.
         </p>
@@ -411,9 +411,9 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section className="bg-accent">
+      <Section className="bg-ink">
         <div className="mx-auto flex max-w-2xl flex-col items-center gap-8 text-center">
-          <p className="font-display text-2xl text-white sm:text-3xl lg:text-4xl">
+          <p className="font-display text-2xl text-background sm:text-3xl lg:text-4xl">
             Your list is already worth more than it&apos;s earning.
           </p>
           <Button href="mailto:sophia.rielly05@gmail.com" variant="invert">

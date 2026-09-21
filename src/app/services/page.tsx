@@ -15,13 +15,13 @@ export default function ServicesPage() {
     <main className="flex flex-1 flex-col">
       <Section>
         <h1 className="text-5xl leading-none sm:text-6xl">Services</h1>
-        <p className="mt-6 max-w-xl text-lg text-warm-grey">
+        <p className="mt-6 max-w-xl text-lg text-ink">
           Everything I build, from the first welcome email to the
           segmentation behind every send.
         </p>
       </Section>
 
-      <Section className="bg-cream">
+      <Section>
         <div className="flex flex-col gap-16 sm:gap-24">
           {services.map((service, index) => (
             <div
@@ -30,7 +30,7 @@ export default function ServicesPage() {
                 index % 2 === 1 ? "sm:flex-row-reverse" : "sm:flex-row"
               }`}
             >
-              <div className="flex aspect-[4/5] w-full items-center justify-center rounded-2xl border border-ink/10 bg-white sm:w-1/2">
+              <div className="flex aspect-[4/5] w-full items-center justify-center rounded-2xl border border-ink/10 bg-cream sm:w-1/2">
                 <Label className="opacity-60">Email mockup</Label>
               </div>
               <div className="w-full sm:w-1/2">
@@ -48,7 +48,7 @@ export default function ServicesPage() {
                   ))}
                 </div>
                 <h3 className="mt-4 text-3xl sm:text-4xl">{service.title}</h3>
-                <p className="mt-4 text-lg text-warm-grey">{service.body}</p>
+                <p className="mt-4 text-lg text-ink">{service.body}</p>
                 <TextLink href="#" className="mt-6 inline-block">
                   How it works
                 </TextLink>
