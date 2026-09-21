@@ -12,7 +12,7 @@ export default function EmailCard({ email, onOpen }: EmailCardProps) {
     <button
       type="button"
       onClick={onOpen}
-      className="mb-6 block w-full break-inside-avoid overflow-hidden rounded-2xl border border-ink/10 bg-white/40 text-left outline-hidden transition-shadow hover:shadow-lg focus-visible:[outline:2px_solid_var(--color-ink)] focus-visible:[outline-offset:4px]"
+      className="mb-6 block w-full break-inside-avoid overflow-hidden rounded-2xl border border-ink/10 bg-cream text-left outline-hidden transition-shadow hover:shadow-lg focus-visible:[outline:2px_solid_var(--color-ink)] focus-visible:[outline-offset:4px]"
     >
       <div className="relative h-64 w-full overflow-hidden bg-ink/5">
         <Image

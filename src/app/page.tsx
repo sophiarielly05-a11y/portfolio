@@ -1,9 +1,10 @@
-import Link from "next/link";
 import Label from "@/components/Label";
 import TextLink from "@/components/TextLink";
 import Button from "@/components/Button";
 import Section from "@/components/Section";
 import Faq from "@/components/Faq";
+import ContactForm from "@/components/ContactForm";
+import { services } from "@/data/services";
 
 const proofPoints = [
   { accent: "17+", rest: "automations built" },
@@ -159,29 +160,6 @@ const caseStudies = [
   },
 ];
 
-const services = [
-  {
-    tags: ["Welcome", "Post-purchase", "Win-back", "Abandoned cart"],
-    title: "Lifecycle and automation",
-    body: "The automations that carry a customer from first sign-up to repeat buyer: welcome series that convert, post-purchase flows that bring people back, and win-back journeys that recover anyone who's gone quiet.",
-  },
-  {
-    tags: ["Customer", "Trade", "Editorial"],
-    title: "Newsletters",
-    body: "Customer and trade newsletters with a voice worth opening, built to hold attention and earn clicks rather than just announce this week's news and offers.",
-  },
-  {
-    tags: ["Trustpilot", "Post-purchase", "Follow-ups"],
-    title: "Reviews and social proof",
-    body: "Automated review-collection flows into Trustpilot and similar, timed to peak satisfaction and followed up for anyone who doesn't open the first send, turning happy buyers into ratings that sell to the next customer.",
-  },
-  {
-    tags: ["Intent-based", "Behavioural", "Data-led"],
-    title: "Nurture and segmentation",
-    body: "Audience segments built from real customer data, intent and behaviour, plus a campaign plan for launches and sales, so the right message reaches the right person at the right time.",
-  },
-];
-
 export default function Home() {
   return (
     <main className="flex flex-1 flex-col">
@@ -192,7 +170,7 @@ export default function Home() {
             <span className="block">Sophia</span>
             <span className="block">Rielly</span>
           </h1>
-          <p className="mt-8 max-w-md text-lg text-ink/80">
+          <p className="mt-8 max-w-md text-lg text-warm-grey">
             Lifecycle email and automation for e-commerce and retail brands.
             Flows, newsletters, reviews and win-backs that grow revenue from
             the audience you already have.
@@ -222,30 +200,32 @@ export default function Home() {
         </div>
       </section>
 
-      <Section id="results">
+      <Section id="results" className="bg-cream">
         <h2 className="text-4xl sm:text-5xl lg:text-6xl">
           Results that compound
         </h2>
-        <p className="mt-4 max-w-xl text-lg text-ink/80">
+        <p className="mt-4 max-w-xl text-lg text-warm-grey">
           The impact behind the lifecycle systems and campaigns below.
         </p>
         <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {results.map((result) => (
             <div
               key={result.label}
-              className="rounded-2xl border border-ink/10 p-8 sm:p-10"
+              className="rounded-2xl border border-ink/10 bg-white p-8 sm:p-10"
             >
               <p className="font-display text-5xl text-accent sm:text-6xl">
                 {result.value}
               </p>
               <Label className="mt-4 block text-sm">{result.label}</Label>
-              <p className="mt-2 text-base text-ink/80">{result.context}</p>
+              <p className="mt-2 text-base text-warm-grey">
+                {result.context}
+              </p>
             </div>
           ))}
         </div>
       </Section>
 
-      <Section id="selected-work" className="bg-accent/5">
+      <Section id="selected-work">
         <Label as="h2" className="text-base">
           Selected Work
         </Label>
@@ -257,26 +237,26 @@ export default function Home() {
             >
               <Label>{study.category}</Label>
               <h3 className="mt-4 text-3xl sm:text-4xl">{study.heading}</h3>
-              <p className="mt-4 text-lg text-ink/80">{study.summary}</p>
+              <p className="mt-4 text-lg text-warm-grey">{study.summary}</p>
               <div className="mt-8 space-y-6">
                 <div>
                   <Label className="text-sm">Challenge</Label>
-                  <p className="mt-1 text-base text-ink/80">
+                  <p className="mt-1 text-base text-warm-grey">
                     {study.challenge}
                   </p>
                 </div>
                 <div>
                   <Label className="text-sm">Approach</Label>
-                  <p className="mt-1 text-base text-ink/80">
+                  <p className="mt-1 text-base text-warm-grey">
                     {study.approach}
                   </p>
                 </div>
                 <div>
                   <Label className="text-sm">Result</Label>
-                  <p className="mt-1 text-base text-ink/80">
+                  <p className="mt-1 text-base text-warm-grey">
                     {study.result ? `${study.result} ` : null}
                     {study.resultNote && (
-                      <span className="italic text-ink/50">
+                      <span className="italic text-warm-grey/70">
                         {study.resultNote}
                       </span>
                     )}
@@ -288,44 +268,30 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section id="services">
+      <Section id="services" className="bg-cream">
         <Label as="h2" className="text-base">
           Services
         </Label>
-        <div className="mt-12 flex flex-col gap-16 sm:gap-24">
+        <p className="mt-4 max-w-xl text-lg text-warm-grey">
+          Lifecycle flows, newsletters, reviews and the segmentation behind
+          them.
+        </p>
+        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-lg text-ink">
           {services.map((service, index) => (
-            <div
-              key={service.title}
-              className={`flex flex-col gap-8 sm:items-center sm:gap-12 ${
-                index % 2 === 1 ? "sm:flex-row-reverse" : "sm:flex-row"
-              }`}
-            >
-              <div className="flex aspect-[4/5] w-full items-center justify-center rounded-2xl border border-ink/10 bg-ink/5 sm:w-1/2">
-                <Label className="text-ink/40">Email mockup</Label>
-              </div>
-              <div className="w-full sm:w-1/2">
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                  {service.tags.map((tag, tagIndex) => (
-                    <span key={tag} className="flex items-center gap-4">
-                      {tagIndex > 0 && (
-                        <span
-                          aria-hidden="true"
-                          className="h-3 w-px bg-ink/15"
-                        />
-                      )}
-                      <Label className="text-xs">{tag}</Label>
-                    </span>
-                  ))}
-                </div>
-                <h3 className="mt-4 text-3xl sm:text-4xl">{service.title}</h3>
-                <p className="mt-4 text-lg text-ink/80">{service.body}</p>
-                <TextLink href="#" className="mt-6 inline-block">
-                  How it works
-                </TextLink>
-              </div>
-            </div>
+            <span key={service.title} className="flex items-center gap-6">
+              {index > 0 && (
+                <span
+                  aria-hidden="true"
+                  className="hidden h-4 w-px bg-ink/15 sm:block"
+                />
+              )}
+              {service.title}
+            </span>
           ))}
         </div>
+        <TextLink href="/services" className="mt-8 inline-block">
+          See all services →
+        </TextLink>
       </Section>
 
       <Section id="how-i-work">
@@ -339,12 +305,12 @@ export default function Home() {
                 {step.number}
               </p>
               <h3 className="mt-3 text-2xl sm:text-3xl">{step.title}</h3>
-              <p className="mt-2 text-base text-ink/80">{step.summary}</p>
+              <p className="mt-2 text-base text-warm-grey">{step.summary}</p>
               <ul className="mt-4 space-y-2">
                 {step.bullets.map((bullet) => (
                   <li
                     key={bullet}
-                    className="flex items-start gap-2 text-sm text-ink/70"
+                    className="flex items-start gap-2 text-sm text-warm-grey"
                   >
                     <span
                       aria-hidden="true"
@@ -359,14 +325,14 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section id="testimonials">
+      <Section id="testimonials" className="bg-cream">
         <Label as="h2" className="text-base">
           Testimonials
         </Label>
         <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="border-t border-ink/10 pt-8">
-              <p className="text-lg italic text-ink/50">
+              <p className="text-lg italic text-warm-grey/70">
                 {testimonial.quote}
               </p>
               <p className="mt-4 font-medium text-accent">
@@ -378,12 +344,12 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section id="about" className="bg-accent/5">
+      <Section id="about">
         <Label as="h2" className="text-base">
           About
         </Label>
         <div className="mt-8 flex flex-col-reverse gap-10 sm:flex-row sm:items-start sm:justify-between">
-          <div className="max-w-2xl flex-1 space-y-6 text-lg text-ink/80">
+          <div className="max-w-2xl flex-1 space-y-6 text-lg text-warm-grey">
             <p>
               I&apos;m Sophia, a CRM and email marketer who builds lifecycle
               systems for retail brands. For the last few years I&apos;ve run
@@ -400,13 +366,13 @@ export default function Home() {
               isn&apos;t pulling its weight, that&apos;s the gap I close.
             </p>
           </div>
-          <div className="flex aspect-[4/5] w-full shrink-0 items-center justify-center rounded-2xl border border-ink/10 bg-ink/5 sm:w-48">
-            <Label className="text-ink/40">Photo</Label>
+          <div className="flex aspect-[4/5] w-full shrink-0 items-center justify-center rounded-2xl border border-ink/10 bg-cream sm:w-48">
+            <Label className="opacity-60">Photo</Label>
           </div>
         </div>
       </Section>
 
-      <Section id="faq">
+      <Section id="faq" className="bg-cream">
         <Label as="h2" className="text-base">
           FAQ
         </Label>
@@ -419,14 +385,14 @@ export default function Home() {
         <h2 className="text-5xl leading-none sm:text-6xl lg:text-7xl">
           Let&apos;s talk
         </h2>
-        <p className="mt-6 max-w-md text-lg text-ink/80">
+        <p className="mt-6 max-w-md text-lg text-warm-grey">
           Tell me where email is falling short and I&apos;ll tell you where to
           start.
         </p>
-        <div className="mt-12 flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-20">
+        <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
             <Label className="text-sm">What you&apos;ll get</Label>
-            <ul className="mt-4 space-y-3 text-lg text-ink/80">
+            <ul className="mt-4 space-y-3 text-lg text-warm-grey">
               {contactBullets.map((bullet) => (
                 <li key={bullet} className="flex items-start gap-3">
                   <span
@@ -438,17 +404,7 @@ export default function Home() {
               ))}
             </ul>
           </div>
-          <div className="flex flex-col items-start gap-4">
-            <Link
-              href="mailto:sophia.rielly05@gmail.com"
-              className="inline-block rounded-sm text-2xl break-words text-accent underline decoration-2 underline-offset-8 outline-hidden transition-opacity hover:opacity-80 focus-visible:[outline:2px_solid_var(--color-ink)] focus-visible:[outline-offset:4px] motion-reduce:transition-none sm:text-4xl lg:text-5xl"
-            >
-              sophia.rielly05@gmail.com
-            </Link>
-            <TextLink href="#" className="text-lg">
-              Book a call
-            </TextLink>
-          </div>
+          <ContactForm />
         </div>
       </Section>
 

@@ -12,7 +12,7 @@ export default function Label({
 }: LabelProps) {
   return (
     <Component
-      className={`font-body [font-variant-caps:all-small-caps] tracking-wide text-ink/70 ${className}`}
+      className={`font-body [font-variant-caps:all-small-caps] tracking-wide text-warm-grey ${className}`}
       {...props}
     >
       {children}

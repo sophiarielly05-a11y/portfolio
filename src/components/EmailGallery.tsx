@@ -46,7 +46,7 @@ export default function EmailGallery({ emails }: EmailGalleryProps) {
               className={`rounded-full border px-4 py-2 text-sm font-medium outline-hidden transition-colors focus-visible:[outline:2px_solid_var(--color-ink)] focus-visible:[outline-offset:4px] ${
                 isActive
                   ? "border-accent bg-accent text-ink"
-                  : "border-ink/15 text-ink/70 hover:border-ink/40"
+                  : "border-ink/15 text-warm-grey hover:border-ink/40"
               }`}
             >
               {category}

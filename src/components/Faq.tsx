@@ -61,7 +61,7 @@ export default function Faq({ items }: FaqProps) {
               style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
             >
               <div className="overflow-hidden">
-                <p className="max-w-2xl pb-6 text-base text-ink/80">
+                <p className="max-w-2xl pb-6 text-base text-warm-grey">
                   {item.answer}
                 </p>
               </div>
