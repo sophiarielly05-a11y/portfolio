@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import TextLink from "./TextLink";
 import Button from "./Button";
+import Container from "./Container";
 
 const navItems = [
   { label: "Work", href: "/#selected-work" },
@@ -29,8 +30,8 @@ export default function Header() {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-background/70 px-6 py-4 backdrop-blur-md sm:px-10 sm:py-6 lg:px-16">
-      <div className="mx-auto flex max-w-7xl items-center justify-between">
+    <header className="sticky top-0 z-40 w-full bg-background/70 py-4 backdrop-blur-md sm:py-6">
+      <Container className="flex items-center justify-between">
         <Link
           href="/"
           onClick={closeMenu}
@@ -81,22 +82,24 @@ export default function Header() {
             )}
           </svg>
         </button>
-      </div>
+      </Container>
 
       {isMenuOpen && (
-        <nav
-          id="mobile-nav"
-          className="mx-auto mt-4 flex max-w-7xl flex-col items-start gap-4 border-t border-ink/10 pt-4 text-base sm:hidden"
-        >
-          {navItems.map((item) => (
-            <TextLink key={item.href} href={item.href} onClick={closeMenu}>
-              {item.label}
-            </TextLink>
-          ))}
-          <Button href="/#contact" variant="nav" onClick={closeMenu}>
-            Start a project
-          </Button>
-        </nav>
+        <Container>
+          <nav
+            id="mobile-nav"
+            className="mt-4 flex flex-col items-start gap-4 border-t border-ink/10 pt-4 text-base sm:hidden"
+          >
+            {navItems.map((item) => (
+              <TextLink key={item.href} href={item.href} onClick={closeMenu}>
+                {item.label}
+              </TextLink>
+            ))}
+            <Button href="/#contact" variant="nav" onClick={closeMenu}>
+              Start a project
+            </Button>
+          </nav>
+        </Container>
       )}
     </header>
   );

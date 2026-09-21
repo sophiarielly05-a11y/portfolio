@@ -1,4 +1,5 @@
 import TextLink from "./TextLink";
+import Container from "./Container";
 
 const socialLinks = [
   { label: "Instagram", href: "#" },
@@ -8,8 +9,8 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="mt-auto w-full px-6 py-10 sm:px-10 sm:py-12 lg:px-16">
-      <div className="flex max-w-7xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+    <footer className="mt-auto w-full py-10 sm:py-12">
+      <Container className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <TextLink href="mailto:sophia.rielly05@gmail.com">
           sophia.rielly05@gmail.com
         </TextLink>
@@ -20,7 +21,7 @@ export default function Footer() {
             </TextLink>
           ))}
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

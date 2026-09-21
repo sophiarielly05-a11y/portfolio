@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { ComponentPropsWithoutRef } from "react";
+import Container from "./Container";
 
 type SectionProps = ComponentPropsWithoutRef<"section">;
 
@@ -33,12 +34,12 @@ export default function Section({
   return (
     <section
       ref={ref}
-      className={`w-full px-6 py-16 transition-all duration-700 ease-out motion-reduce:translate-y-0! motion-reduce:opacity-100! motion-reduce:transition-none sm:px-10 sm:py-24 lg:px-16 lg:py-32 ${
+      className={`w-full py-16 transition-all duration-700 ease-out motion-reduce:translate-y-0! motion-reduce:opacity-100! motion-reduce:transition-none sm:py-24 lg:py-32 ${
         isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
       } ${className}`}
       {...props}
     >
-      <div className="max-w-7xl">{children}</div>
+      <Container>{children}</Container>
     </section>
   );
 }

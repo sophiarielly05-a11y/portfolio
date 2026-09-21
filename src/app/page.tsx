@@ -2,6 +2,7 @@ import Label from "@/components/Label";
 import TextLink from "@/components/TextLink";
 import Button from "@/components/Button";
 import Section from "@/components/Section";
+import Container from "@/components/Container";
 import Faq from "@/components/Faq";
 import ContactForm from "@/components/ContactForm";
 import { services } from "@/data/services";
@@ -163,41 +164,43 @@ const caseStudies = [
 export default function Home() {
   return (
     <main className="flex flex-1 flex-col">
-      <section className="flex min-h-dvh flex-col justify-center px-6 py-16 sm:px-10 lg:px-16">
-        <div className="max-w-xl">
-          <Label>CRM & Email Strategy</Label>
-          <h1 className="mt-6 text-6xl leading-[0.85] text-accent sm:text-8xl lg:text-9xl">
-            <span className="block">Sophia</span>
-            <span className="block">Rielly</span>
-          </h1>
-          <p className="mt-8 max-w-md text-lg text-warm-grey">
-            Lifecycle email and automation for e-commerce and retail brands.
-            Flows, newsletters, reviews and win-backs that grow revenue from
-            the audience you already have.
-          </p>
-          <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8">
-            <Button href="#selected-work">See the work</Button>
-            <TextLink href="mailto:sophia.rielly05@gmail.com">
-              Start a project
-            </TextLink>
+      <section className="flex min-h-dvh flex-col justify-center py-16">
+        <Container>
+          <div className="max-w-xl">
+            <Label>CRM & Email Strategy</Label>
+            <h1 className="mt-6 text-6xl leading-[0.85] text-accent sm:text-8xl lg:text-9xl">
+              <span className="block">Sophia</span>
+              <span className="block">Rielly</span>
+            </h1>
+            <p className="mt-8 max-w-md text-lg text-warm-grey">
+              Lifecycle email and automation for e-commerce and retail
+              brands. Flows, newsletters, reviews and win-backs that grow
+              revenue from the audience you already have.
+            </p>
+            <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8">
+              <Button href="#selected-work">See the work</Button>
+              <TextLink href="mailto:sophia.rielly05@gmail.com">
+                Start a project
+              </TextLink>
+            </div>
           </div>
-        </div>
-        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
-          {proofPoints.map((point, index) => (
-            <span key={point.rest} className="flex items-center gap-6">
-              {index > 0 && (
-                <span
-                  aria-hidden="true"
-                  className="hidden h-3.5 w-px bg-ink/15 sm:block"
-                />
-              )}
-              <Label>
-                <span className="text-accent">{point.accent}</span>{" "}
-                {point.rest}
-              </Label>
-            </span>
-          ))}
-        </div>
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+            {proofPoints.map((point, index) => (
+              <span key={point.rest} className="flex items-center gap-6">
+                {index > 0 && (
+                  <span
+                    aria-hidden="true"
+                    className="hidden h-3.5 w-px bg-ink/15 sm:block"
+                  />
+                )}
+                <Label>
+                  <span className="text-accent">{point.accent}</span>{" "}
+                  {point.rest}
+                </Label>
+              </span>
+            ))}
+          </div>
+        </Container>
       </section>
 
       <Section id="results" className="bg-cream">
