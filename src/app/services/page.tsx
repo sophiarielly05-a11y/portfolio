@@ -31,7 +31,11 @@ export default function ServicesPage() {
                 index % 2 === 1 ? "sm:flex-row-reverse" : "sm:flex-row"
               }`}
             >
-              <ImageFrame label="Email mockup" className="sm:w-1/2" />
+              <ImageFrame
+                label="Email mockup"
+                src={service.image}
+                className="sm:w-1/2"
+              />
               <div className="w-full sm:w-1/2">
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                   {service.tags.map((tag, tagIndex) => (

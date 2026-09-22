@@ -124,6 +124,7 @@ const contactBullets = [
 
 const caseStudies = [
   {
+    image: "/emails/email-21.png",
     category: "Lifecycle & Automation",
     heading: "Building a lifecycle from scratch",
     summary:
@@ -138,6 +139,7 @@ const caseStudies = [
       "[Add a metric: engagement lift, hours saved per week, or conversion improvement.]",
   },
   {
+    image: "/emails/email-17.png",
     category: "Newsletters",
     heading: "A newsletter people actually open",
     summary:
@@ -151,6 +153,7 @@ const caseStudies = [
       "[Add open-rate and click-rate change once you have the figures.]",
   },
   {
+    image: "/emails/email-09.png",
     category: "Reviews & Social Proof",
     heading: "Turning buyers into reviewers",
     summary:
@@ -255,7 +258,11 @@ export default function Home() {
                 index % 2 === 1 ? "sm:flex-row-reverse" : "sm:flex-row"
               }`}
             >
-              <ImageFrame label="Case study" className="sm:w-1/2" />
+              <ImageFrame
+                label="Case study"
+                src={study.image}
+                className="sm:w-1/2"
+              />
               <div className="w-full sm:w-1/2">
                 <EyebrowLabel tone="heading">{study.category}</EyebrowLabel>
                 <h3 className="mt-4 text-3xl sm:text-4xl">{study.heading}</h3>
@@ -299,9 +306,9 @@ export default function Home() {
           A taste of the lifecycle and campaign emails in the full gallery.
         </p>
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
-          <ImageFrame label="Email" />
-          <ImageFrame label="Email" />
-          <ImageFrame label="Email" />
+          <ImageFrame label="Email" src="/emails/email-07.png" />
+          <ImageFrame label="Email" src="/emails/email-16.png" />
+          <ImageFrame label="Email" src="/emails/email-30.png" />
         </div>
         <TextLink href="/work/emails" className="mt-8 inline-block">
           See all emails →
@@ -324,7 +331,11 @@ export default function Home() {
                 index % 2 === 1 ? "sm:flex-row-reverse" : "sm:flex-row"
               }`}
             >
-              <ImageFrame label="Email mockup" className="sm:w-1/2" />
+              <ImageFrame
+                label="Email mockup"
+                src={service.image}
+                className="sm:w-1/2"
+              />
               <div className="w-full sm:w-1/2">
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                   {service.tags.map((tag, tagIndex) => (

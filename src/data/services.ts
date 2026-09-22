@@ -2,6 +2,7 @@ export type Service = {
   tags: string[];
   title: string;
   body: string;
+  image: string;
 };
 
 export const services: Service[] = [
@@ -9,20 +10,24 @@ export const services: Service[] = [
     tags: ["Welcome", "Post-purchase", "Win-back", "Abandoned cart"],
     title: "Lifecycle and automation",
     body: "The automations that carry a customer from first sign-up to repeat buyer: welcome series that convert, post-purchase flows that bring people back, and win-back journeys that recover anyone who's gone quiet.",
+    image: "/emails/email-25.png",
   },
   {
     tags: ["Customer", "Trade", "Editorial"],
     title: "Newsletters",
     body: "Customer and trade newsletters with a voice worth opening, built to hold attention and earn clicks rather than just announce this week's news and offers.",
+    image: "/emails/email-04.png",
   },
   {
     tags: ["Trustpilot", "Post-purchase", "Follow-ups"],
     title: "Reviews and social proof",
     body: "Automated review-collection flows into Trustpilot and similar, timed to peak satisfaction and followed up for anyone who doesn't open the first send, turning happy buyers into ratings that sell to the next customer.",
+    image: "/emails/email-14.png",
   },
   {
     tags: ["Intent-based", "Behavioural", "Data-led"],
     title: "Nurture and segmentation",
     body: "Audience segments built from real customer data, intent and behaviour, plus a campaign plan for launches and sales, so the right message reaches the right person at the right time.",
+    image: "/emails/email-02.png",
   },
 ];
